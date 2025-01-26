@@ -11,7 +11,7 @@ public class ProductPage {
     }
 
     By firstProduct = By.cssSelector("div#search div:nth-child(6) > div > div > span > div > div > div.s-product-image-container.aok-relative.s-text-center.s-image-overlay-grey.puis-image-overlay-grey.s-padding-left-small.s-padding-right-small.puis-spacing-small.s-height-equalized.puis.puis-v6c64cvwlsyid2hldh28hsxay3 > span > a > div > img");
-    By addToCartButton = By.id("add-to-cart-button");
+    By addToCartButton = By.id("add-to-cart-button abc");
 
     public void selectFirstProduct() {
         driver.findElement(firstProduct).click();
