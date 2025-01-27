@@ -16,8 +16,8 @@ public class AmazonStepDef {
     ProductPage productPage;
     CartPage cartPage;
 
-    @Given("I am on the Amazon home page")
-    public void iAmOnTheAmazonHomePage() {
+    @Given("Kullanıcı amazon.com.tr adresine gider")
+    public void amazonHomePage() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications");
         System.setProperty("webdriver.chrome.driver", "drivers/chromedriver/chromedriver.exe");
@@ -31,20 +31,14 @@ public class AmazonStepDef {
         cartPage = new CartPage(driver);
 
     }
-
-    @When("I search for {string}")
-    public void iSearchFor(String productName) {
-        homePage.searchProduct(productName);
+    @When("Çerez pop-up'ı varsa kapatılır")
+    public void closeCookie() {
+        homePage.rejectCookie();
     }
 
-    @When("I select the first product")
-    public void iSelectTheFirstProduct() {
-        productPage.selectFirstProduct();
+    @When("Arama çubuğuna istenilen ürün adı {string} girilir,arama yapılır")
+    public void productSearch(String productName) {
+        homePage.rejectCookie();
     }
 
-    @Then("I add the product to the cart")
-    public void iAddTheProductToTheCart() {
-        productPage.addToCart();
-        driver.quit();
-    }
 }
