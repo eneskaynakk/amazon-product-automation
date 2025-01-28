@@ -37,8 +37,8 @@ public class AmazonStepDef {
     }
 
     @When("Arama çubuğuna istenilen ürün adı {string} girilir,arama yapılır")
-    public void productSearch(String productName) {
-        homePage.rejectCookie();
+    public void productNameSearch(String productName) {
+        homePage.productSearch(productName);
     }
 
 }
