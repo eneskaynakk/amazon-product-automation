@@ -1,23 +1,42 @@
 package pages;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+
+import javax.swing.*;
 
 
 public class HomePage {
         WebDriver driver;
+        ErrorPage errorPage;
 
         public HomePage(WebDriver driver) {
             this.driver = driver;
         }
 
-        By searchBox = By.id("twotabsearchtextbox");
-        By searchButton = By.id("nav-search-submit-button");
-        By notification = By.id("div#B0BGQMM9J6 img");
+        By cookie = By.id("sp-cc-rejectall-link");
+        By searchClick = By.cssSelector("input[id=\"twotabsearchtextbox\"]");
 
-        public void searchProduct(String productName) {
-            driver.findElement(notification).click();
-            driver.findElement(searchBox).sendKeys(productName);
-            driver.findElement(searchButton).click();
+
+        public void rejectCookie() {
+            errorPage = new ErrorPage(driver);
+            try{
+                driver.findElement(cookie).click();
+            }
+            catch (NoSuchElementException e){
+                errorPage.elementControl(cookie);
+            }
         }
 
+        public void productSearch(String productName){
+            try{
+                driver.findElement(searchClick).click();
+                driver.findElement(searchClick).sendKeys(productName + Keys.ENTER);
+            }
+            catch (NoSuchElementException e){
+                errorPage.elementControl(searchClick);
+            }
+
+        }
 }
