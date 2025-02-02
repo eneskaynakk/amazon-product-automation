@@ -33,6 +33,7 @@ public class ElementControlPage {
             throw new TimeoutException("Öge Bulunamadı: " + path.toString());
         }
     }
+
     public void elementVisibilityV2(By path) {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(path));
@@ -42,4 +43,5 @@ public class ElementControlPage {
             throw new TimeoutException("Öge Bulunamadı: " + path.toString());
         }
     }
+
 }

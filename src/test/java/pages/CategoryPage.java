@@ -21,10 +21,11 @@ public class CategoryPage {
     By stock = By.cssSelector("div#p_n_availability a > span");
     By harryPotter = By.xpath("//span[text()=\"Harry Potter ve Felsefe Taşı 20. Yıl Gryffindor Özel Baskısı\"]");
 
-    By bestSellingProduct = By.xpath("(//li[@class=\"a-carousel-card\"])[13]");
+    By bestSellingProduct = By.xpath("(//li[@class=\"a-carousel-card\"])[19]");
     By dealsOfTheDayDepartmentFilter = By.cssSelector("div#DealsGridScrollAnchor div:nth-child(1) > div > span:nth-child(4) > div > label > span > span");
     By dealsOfTheDayBrandFilter = By.cssSelector("span:nth-of-type(1) > div[data-a-input-name=\"brands\"]");
     By dealsOfTheDayProduct = By.xpath("(//span[@data-a-word-break=\"normal\"])[1]");
+    By newReleasesProduct = By.xpath("(//li[@class=\"a-carousel-card\"])[19]");
 
     public void filterTheSearchedProduct(){
         elementControlPage.elementVisibilityV1(skin);
@@ -33,6 +34,7 @@ public class CategoryPage {
         elementControlPage.elementVisibilityV1(languageTr);
         elementControlPage.elementVisibilityV1(stock);
         elementControlPage.elementVisibilityV1(harryPotter);
+        productPage.addToCart();
     }
 
     public void filteringSubcategoryProducts(){
@@ -55,7 +57,9 @@ public class CategoryPage {
                 continue;
             }
             else if(i==4){
-
+                elementControlPage.elementVisibilityV1(subcategories);
+                elementControlPage.elementVisibilityV1(newReleasesProduct);
+                productPage.addToCart();
             }
         }
     }
