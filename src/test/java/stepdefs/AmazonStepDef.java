@@ -13,7 +13,6 @@ public class AmazonStepDef {
     WebDriver driver;
     HomePage homePage;
     CategoryPage categoryPage;
-    ProductPage productPage;
     CartPage cartPage;
 
     @Given("Kullanıcı amazon.com.tr adresine gider")
@@ -27,7 +26,6 @@ public class AmazonStepDef {
 
         homePage = new HomePage(driver);
         categoryPage = new CategoryPage(driver);
-        productPage = new ProductPage(driver);
         cartPage = new CartPage(driver);
 
     }
@@ -49,6 +47,16 @@ public class AmazonStepDef {
     @When("Alt kategorilerde ürün filtrelemesi varsa yapılır ve istenilen ürünler sırasıyla sepete eklenir")
     public void subcategory() {
         categoryPage.filteringSubcategoryProducts();
+    }
+
+    @When("Sepet sayfasına gidilir")
+    public void goToTheCartPage(){
+        cartPage.goToCartPage();
+    }
+
+    @Then("Sepetteki tüm ürünler kaldırılır")
+    public void stepToProductRemoval(){
+        cartPage.productRemoval();
     }
 
 }
