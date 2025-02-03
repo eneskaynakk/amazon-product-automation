@@ -36,9 +36,19 @@ public class AmazonStepDef {
         homePage.rejectCookie();
     }
 
-    @When("Arama çubuğuna istenilen ürün adı {string} girilir,arama yapılır")
+    @When("Arama çubuğuna istenilen ürün adı {string} girilir ve arama yapılır")
     public void productNameSearch(String productName) {
         homePage.productSearch(productName);
+    }
+
+    @When("Aranan ürün filtrelenir ve ürün sepete eklenir")
+    public void stepToFilterTheSearchedProduct(){
+        categoryPage.filterTheSearchedProduct();
+    }
+
+    @When("Alt kategorilerde ürün filtrelemesi varsa yapılır ve istenilen ürünler sırasıyla sepete eklenir")
+    public void subcategory() {
+        categoryPage.filteringSubcategoryProducts();
     }
 
 }
