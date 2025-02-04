@@ -6,7 +6,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import pages.HomePage;
 import pages.CategoryPage;
-import pages.ProductPage;
 import pages.CartPage;
 
 public class AmazonStepDef {
@@ -58,5 +57,6 @@ public class AmazonStepDef {
     public void stepToProductRemoval(){
         cartPage.productRemoval();
     }
+
 
 }

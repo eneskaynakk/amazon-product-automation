@@ -15,6 +15,7 @@ public class CartPage {
     By cartButton = By.id("nav-cart");
 
     By increaseProductQuantity = By.cssSelector("span[id=\"nav-cart-count\"]");
+    By deleteButton = By.xpath("(//input[@data-feature-id=\"item-delete-button\"])[1]");
 
     public void goToCartPage(){
         elementControlPage.elementVisibilityV1(cartButton);
@@ -25,8 +26,7 @@ public class CartPage {
         int increaseProductQuantityInt = Integer.parseInt(increaseProductQuantityString);
 
         for(int i=1; i<increaseProductQuantityInt+1; i++){
-            By deleteButton = By.xpath("(//input[@data-feature-id=\"item-delete-button\"])" + "[" + i + "]");
-            elementControlPage.elementVisibilityV2(deleteButton);
+            elementControlPage.elementVisibilityV1(deleteButton);
         }
     }
 }
