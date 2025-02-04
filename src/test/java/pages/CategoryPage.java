@@ -21,7 +21,7 @@ public class CategoryPage {
     By stock = By.cssSelector("div#p_n_availability a > span");
     By harryPotter = By.xpath("//span[text()=\"Harry Potter ve Felsefe Taşı 20. Yıl Gryffindor Özel Baskısı\"]");
 
-    By bestSellingProduct = By.xpath("(//li[@class=\"a-carousel-card\"])[19]");
+    By bestSellingProduct = By.xpath("(//li[@class=\"a-carousel-card\"])[17]");
     By dealsOfTheDayDepartmentFilter = By.cssSelector("div#DealsGridScrollAnchor div:nth-child(1) > div > span:nth-child(4) > div > label > span > span");
     By dealsOfTheDayBrandFilter = By.cssSelector("span:nth-of-type(1) > div[data-a-input-name=\"brands\"]");
     By dealsOfTheDayProduct = By.xpath("(//span[@data-a-word-break=\"normal\"])[1]");
@@ -91,7 +91,6 @@ public class CategoryPage {
                 elementControlPage.elementVisibilityV1(bookProduct);
                 productPage.addToCart();
             }
-
         }
     }
 }

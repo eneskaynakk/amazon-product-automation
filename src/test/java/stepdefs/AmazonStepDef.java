@@ -6,14 +6,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import pages.HomePage;
 import pages.CategoryPage;
-import pages.ProductPage;
 import pages.CartPage;
 
 public class AmazonStepDef {
     WebDriver driver;
     HomePage homePage;
     CategoryPage categoryPage;
-    ProductPage productPage;
     CartPage cartPage;
 
     @Given("Kullanıcı amazon.com.tr adresine gider")
@@ -27,7 +25,6 @@ public class AmazonStepDef {
 
         homePage = new HomePage(driver);
         categoryPage = new CategoryPage(driver);
-        productPage = new ProductPage(driver);
         cartPage = new CartPage(driver);
 
     }
@@ -50,5 +47,16 @@ public class AmazonStepDef {
     public void subcategory() {
         categoryPage.filteringSubcategoryProducts();
     }
+
+    @When("Sepet sayfasına gidilir")
+    public void goToTheCartPage(){
+        cartPage.goToCartPage();
+    }
+
+    @Then("Sepetteki tüm ürünler kaldırılır")
+    public void stepToProductRemoval(){
+        cartPage.productRemoval();
+    }
+
 
 }
