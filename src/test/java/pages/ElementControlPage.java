@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Allure;
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.EmailAttachment;
 import org.apache.commons.mail.EmailException;
@@ -7,8 +8,10 @@ import org.apache.commons.mail.HtmlEmail;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -47,9 +50,9 @@ public class ElementControlPage {
         HtmlEmail email = new HtmlEmail();
         email.setHostName("smtp.gmail.com");
         email.setSmtpPort(465);
-        email.setAuthenticator(new DefaultAuthenticator("eneskaynak2002@gmail.com", "khsm qnok pjuw rhka"));
+        email.setAuthenticator(new DefaultAuthenticator("your_email", "demo@123"));
         email.setSSLOnConnect(true);
-        email.setFrom("eneskaynak2002@gmail.com", "Test Automation");
+        email.setFrom("your_email", "Test Automation");
         email.setSubject("Selenium Test Raporu");
         email.setMsg("Test basarisiz oldu. Ekteki ekran görüntüsüne bakabilirsiniz.");
 
@@ -60,7 +63,7 @@ public class ElementControlPage {
         attachment.setName(screenshotFile.getName());
         email.attach(attachment);
 
-        email.addTo("soymacetin@gmail.com");
+        email.addTo("send_email");
         email.send();
     }
 
@@ -71,12 +74,16 @@ public class ElementControlPage {
             driver.findElement(path).click();
         } catch (TimeoutException e) {
             try {
-                File screenshot = takeScreenshot(driver);
+                File screenshot = ElementControlPage.takeScreenshot(driver);
                 sendingMail(screenshot);
+
+                try (FileInputStream screenshotStream = new FileInputStream(screenshot)) {
+                    Allure.addAttachment("Screenshot", screenshotStream);
+                }
             } catch (IOException | EmailException ex) {
                 ex.printStackTrace();
             }
-            throw new TimeoutException("Öge Bulunamadı: " + path.toString());
+            Assert.fail("Öge Bulunamadı: " + path.toString());
         }
     }
 
@@ -86,12 +93,16 @@ public class ElementControlPage {
             driver.findElement(path).click();
         } catch (TimeoutException e) {
             try {
-                File screenshot = takeScreenshot(driver);
+                File screenshot = ElementControlPage.takeScreenshot(driver);
                 sendingMail(screenshot);
+
+                try (FileInputStream screenshotStream = new FileInputStream(screenshot)) {
+                    Allure.addAttachment("Screenshot", screenshotStream);
+                }
             } catch (IOException | EmailException ex) {
                 ex.printStackTrace();
             }
-            throw new TimeoutException("Öge Bulunamadı: " + path.toString());
+            Assert.fail("Öge Bulunamadı: " + path.toString());
         }
     }
 }

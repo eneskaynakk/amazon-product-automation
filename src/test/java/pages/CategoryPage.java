@@ -21,7 +21,7 @@ public class CategoryPage {
     By stock = By.cssSelector("div#p_n_availability a > span");
     By harryPotter = By.xpath("//span[text()=\"Harry Potter ve Felsefe Taşı 20. Yıl Gryffindor Özel Baskısı\"]");
 
-    By bestSellingProduct = By.xpath("(//li[@class=\"a-carousel-card\"])[17]");
+    By bestSellingProduct = By.xpath("(//li[@class=\"a-carousel-card\"])[14]");
     By dealsOfTheDayDepartmentFilter = By.cssSelector("div#DealsGridScrollAnchor div:nth-child(1) > div > span:nth-child(4) > div > label > span > span");
     By dealsOfTheDayBrandFilter = By.cssSelector("span:nth-of-type(1) > div[data-a-input-name=\"brands\"]");
     By dealsOfTheDayProduct = By.xpath("(//span[@data-a-word-break=\"normal\"])[1]");
@@ -32,7 +32,7 @@ public class CategoryPage {
     By giftIdeasProduct = By.xpath("(//h2[@class=\"a-size-base-plus a-spacing-none a-color-base a-text-normal\"])[14]");
     By skinlessBookFilter = By.cssSelector("label[for=\"apb-browse-refinements-checkbox_16\"] > i");
     By bookWriterFilter = By.xpath("//*[@id=\"p_lbr_books_authors_browse-bin/-Scholastic-\"]/span/a/div/label/i");
-    By bookLanguageFilter = By.xpath("//li[@id=\"p_n_feature_nine_browse-bin/14717274031\"]/span/a/div/label/i");
+    By bookLanguageFilter = By.xpath("//li[@id=\"p_n_feature_nine_browse-bin/14717248031\"]/span/a/div/label/i");
     By bookStockFilter = By.cssSelector("div#p_n_availability i");
     By bookProduct = By.xpath("(//div[@role=\"listitem\"])[4]/div/div/span/div/div/div/div[2]/div/div/div[1]");
 

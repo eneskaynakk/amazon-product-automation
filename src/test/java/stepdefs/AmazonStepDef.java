@@ -1,33 +1,26 @@
 package stepdefs;
 
 import io.cucumber.java.en.*;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import pages.HomePage;
 import pages.CategoryPage;
 import pages.CartPage;
 
 public class AmazonStepDef {
-    WebDriver driver;
     HomePage homePage;
     CategoryPage categoryPage;
     CartPage cartPage;
 
+    public AmazonStepDef() {
+        homePage = new HomePage(Hooks.driver);
+        categoryPage = new CategoryPage(Hooks.driver);
+        cartPage = new CartPage(Hooks.driver);
+    }
+
     @Given("Kullanıcı amazon.com.tr adresine gider")
     public void amazonHomePage() {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-notifications");
-        System.setProperty("webdriver.chrome.driver", "drivers/chromedriver/chromedriver.exe");
-        driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
-        driver.get("https://www.amazon.com.tr");
-
-        homePage = new HomePage(driver);
-        categoryPage = new CategoryPage(driver);
-        cartPage = new CartPage(driver);
-
+        Hooks.driver.get("https://www.amazon.com.tr");
     }
+
     @When("Çerez pop-up'ı varsa kapatılır")
     public void closeCookie() {
         homePage.rejectCookie();
@@ -39,7 +32,7 @@ public class AmazonStepDef {
     }
 
     @When("Aranan ürün filtrelenir ve ürün sepete eklenir")
-    public void stepToFilterTheSearchedProduct(){
+    public void stepToFilterTheSearchedProduct() {
         categoryPage.filterTheSearchedProduct();
     }
 
@@ -49,14 +42,12 @@ public class AmazonStepDef {
     }
 
     @When("Sepet sayfasına gidilir")
-    public void goToTheCartPage(){
+    public void goToTheCartPage() {
         cartPage.goToCartPage();
     }
 
     @Then("Sepetteki tüm ürünler kaldırılır")
-    public void stepToProductRemoval(){
+    public void stepToProductRemoval() {
         cartPage.productRemoval();
     }
-
-
 }
