@@ -1,14 +1,14 @@
 package stepdefs;
 
 import io.cucumber.java.en.*;
-import pages.HomePage;
-import pages.CategoryPage;
-import pages.CartPage;
+import pages.*;
 
 public class AmazonStepDef{
     HomePage homePage = new HomePage();
-    CategoryPage categoryPage = new CategoryPage();
+    ProductListPage productListPage = new ProductListPage();
+    ProductPage productPage = new ProductPage();
     CartPage cartPage = new CartPage();
+    MainPage mainPage = new MainPage();
 
     @Given("Kullanıcı amazon.com.tr adresine gider")
     public void amazonHomePage() {
@@ -22,22 +22,23 @@ public class AmazonStepDef{
 
     @When("Arama çubuğuna istenilen ürün adı {string} girilir ve arama yapılır")
     public void productNameSearch(String productName) {
-        homePage.productSearch(productName);
+        mainPage.productSearch(productName);
     }
 
     @When("Aranan ürün filtrelenir ve ürün sepete eklenir")
     public void stepToFilterTheSearchedProduct() {
-        categoryPage.filterTheSearchedProduct();
+        productListPage.filterTheSearchedProduct();
+        productPage.addToCart();
     }
 
     @When("Alt kategorilerde ürün filtrelemesi varsa yapılır ve istenilen ürünler sırasıyla sepete eklenir")
     public void subcategory() {
-        categoryPage.filteringSubcategoryProducts();
+        mainPage.goToSubcategories();
     }
 
     @When("Sepet sayfasına gidilir")
     public void goToTheCartPage() {
-        cartPage.goToCartPage();
+        mainPage.goToCartPage();
     }
 
     @Then("Sepetteki tüm ürünler kaldırılır")
