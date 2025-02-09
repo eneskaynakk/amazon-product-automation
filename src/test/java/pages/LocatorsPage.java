@@ -22,7 +22,7 @@ public class LocatorsPage extends Hooks {
     public By stock = By.cssSelector("div#p_n_availability a > span");
     public By harryPotter = By.xpath("//span[text()=\"Harry Potter ve Felsefe Taşı 20. Yıl Gryffindor Özel Baskısı\"]");
 
-    public By bestSellingProduct = By.xpath("(//li[@class=\"a-carousel-card\"])[25]");
+    public By bestSellingProduct = By.xpath("(//li[@class=\"a-carousel-card\"])[32]");
     public By dealsOfTheDayDepartmentFilter = By.cssSelector("div#DealsGridScrollAnchor div:nth-child(1) > div > span:nth-child(4) > div > label > span > span");
     public By dealsOfTheDayBrandFilter = By.cssSelector("span:nth-of-type(1) > div[data-a-input-name=\"brands\"]");
     public By dealsOfTheDayProduct = By.xpath("(//span[@data-a-word-break=\"normal\"])[1]");
