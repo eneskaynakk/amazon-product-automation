@@ -22,7 +22,7 @@ Projeyi çalıştırabilmek için aşağıdaki araçlara ihtiyacınız var:
 2. Dosyaları açın ve sistem değişkenlerine MAVEN_HOME ekleyin.
 3. PATH değişkenine MAVEN_HOME/bin yolunu ekleyin.
 4. Maven'ın doğru kurulduğunu kontrol etmek için terminale şu komutu yazın:
-    bash
+    ```bash
     mvn -version
     
 
@@ -30,7 +30,7 @@ Projeyi çalıştırabilmek için aşağıdaki araçlara ihtiyacınız var:
 1. *Allure Report* indirin.
 2. İndirilen dosyanın yolunu sistem değişkenlerinde path'e ekleyin.
 3. Kurulumu kontrol etmek için terminale şu komutu yazın:
-    bash
+    ```bash
     allure --version
 
 ## Maven Bağımlılıkları
@@ -44,21 +44,21 @@ Projenin bağımlılıkları pom.xml dosyasında tanımlanmıştır:
 
 ## Nasıl Çalıştırılır?
 1. Projeyi klonlayın:
-    bash
+    ```bash
     git clone https://github.com/eneskaynakk/amazon-product-automation.git
     cd projeadi
     
 2. Maven bağımlılıklarını yükleyin:
-    bash
+    ```bash
     mvn clean install
     
 3. Testleri çalıştırın:
-    bash
+    ```bash
     mvn test
     
 ## Raporlama
 Test çalıştırmalarından sonra Allure raporlarını görüntülemek için aşağıdaki adımları takip edin:  
 1. Maven testleri tamamlandıktan sonra allure-results klasörüne rapor dosyaları oluşturulacaktır.  
 2. Raporu görüntülemek için terminale şu komutu yazın:  
-    bash
+    ```bash
     allure serve allure-results
