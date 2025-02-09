@@ -13,7 +13,6 @@ public class Hooks {
     public void setUp() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications");
-        System.setProperty("webdriver.chrome.driver", "drivers/chromedriver/chromedriver.exe");
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
     }
@@ -25,3 +24,4 @@ public class Hooks {
         }
     }
 }
+

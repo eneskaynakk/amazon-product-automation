@@ -5,16 +5,10 @@ import pages.HomePage;
 import pages.CategoryPage;
 import pages.CartPage;
 
-public class AmazonStepDef {
-    HomePage homePage;
-    CategoryPage categoryPage;
-    CartPage cartPage;
-
-    public AmazonStepDef() {
-        homePage = new HomePage(Hooks.driver);
-        categoryPage = new CategoryPage(Hooks.driver);
-        cartPage = new CartPage(Hooks.driver);
-    }
+public class AmazonStepDef{
+    HomePage homePage = new HomePage();
+    CategoryPage categoryPage = new CategoryPage();
+    CartPage cartPage = new CartPage();
 
     @Given("Kullanıcı amazon.com.tr adresine gider")
     public void amazonHomePage() {
