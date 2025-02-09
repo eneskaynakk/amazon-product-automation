@@ -45,9 +45,9 @@ public class ElementControlPage extends Hooks {
         HtmlEmail email = new HtmlEmail();
         email.setHostName("smtp.gmail.com");
         email.setSmtpPort(465);
-        email.setAuthenticator(new DefaultAuthenticator("eneskaynak2002@gmail.com", "sdjt hdxn idgd ffym"));
+        email.setAuthenticator(new DefaultAuthenticator("your_mail", "application_password"));
         email.setSSLOnConnect(true);
-        email.setFrom("eneskaynak2002@gmail.com", "Test Automation");
+        email.setFrom("your_mail", "Test Automation");
         email.setSubject("Selenium Test Raporu");
         email.setMsg("Test basarisiz oldu. Ekteki ekran görüntüsüne bakabilirsiniz.");
 
@@ -58,7 +58,7 @@ public class ElementControlPage extends Hooks {
         attachment.setName(screenshotFile.getName());
         email.attach(attachment);
 
-        email.addTo("soymacetin@gmail.com");
+        email.addTo("send_mail");
         email.send();
     }
 
