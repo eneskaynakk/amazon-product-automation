@@ -1,32 +1,20 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+public class CartPage extends LocatorsPage{
+    ElementControlPage elementControlPage = new ElementControlPage();
 
-public class CartPage {
-    WebDriver driver;
-    ElementControlPage elementControlPage;
-
-    public CartPage(WebDriver driver) {
-        this.driver = driver;
-        this.elementControlPage = new ElementControlPage(driver);
-    }
-
-    By cartButton = By.id("nav-cart");
-
-    By increaseProductQuantity = By.cssSelector("span[id=\"nav-cart-count\"]");
-    By deleteButton = By.xpath("(//input[@data-feature-id=\"item-delete-button\"])[1]");
-
-    public void goToCartPage(){
+    public CartPage goToCartPage(){
         elementControlPage.elementVisibilityV1(cartButton);
+        return this;
     }
 
-    public void productRemoval(){
+    public CartPage productRemoval(){
         String increaseProductQuantityString = driver.findElement(increaseProductQuantity).getText();
         int increaseProductQuantityInt = Integer.parseInt(increaseProductQuantityString);
 
         for(int i=1; i<increaseProductQuantityInt+1; i++){
             elementControlPage.elementVisibilityV1(deleteButton);
         }
+        return this;
     }
 }
